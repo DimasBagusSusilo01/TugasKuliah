@@ -22,7 +22,16 @@ class BatchData:
     def __len__(self):
         return len(self.data_list)
     
+    def __add__(self, total_data):
+        print (f"Proses menggabungkan {self.nama_batch}, dan {total_data.nama_batch}")
+        self.nama_batch = f"{self.nama_batch} + {total_data.nama_batch}"
+        data_list = self.data_list + total_data.data_list
+        return self.nama_batch, data_list
+    
 data = BatchData("Batch 1", [1,2,3,4,5])
 data2 = BatchData("Periode 1", ["Dewa", "Zaki", "Rizky"])
 
 print (data, '\n', data2)
+
+total_data = data + data2
+print (total_data)
