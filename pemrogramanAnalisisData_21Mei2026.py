@@ -8,7 +8,7 @@
 
 class BatchData:
     def __new__(cls, *args):
-        print(f"Mengalokasikan memori untuk {cls.name}")
+        print(f"Mengalokasikan memori untuk {cls.__name__}")
         return super().__new__(cls)
 
     def __init__(self, nama_batch, data_list):
@@ -16,3 +16,13 @@ class BatchData:
         self.nama_batch = nama_batch
         self.data_list = data_list
 
+    def __str__(self):
+        return f"Batch {self.nama_batch} memiliki {len(self)} data"
+    
+    def __len__(self):
+        return len(self.data_list)
+    
+data = BatchData("Batch 1", [1,2,3,4,5])
+data2 = BatchData("Periode 1", ["Dewa", "Zaki", "Rizky"])
+
+print (data, '\n', data2)
