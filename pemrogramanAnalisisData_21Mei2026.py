@@ -24,14 +24,53 @@ class BatchData:
     
     def __add__(self, total_data):
         print (f"Proses menggabungkan {self.nama_batch}, dan {total_data.nama_batch}")
-        self.nama_batch = f"{self.nama_batch} + {total_data.nama_batch}"
+        nama_batch = self.nama_batch + total_data.nama_batch
         data_list = self.data_list + total_data.data_list
-        return self.nama_batch, data_list
+        return BatchData(nama_batch, data_list)
     
-data = BatchData("Batch 1", [1,2,3,4,5])
-data2 = BatchData("Periode 1", ["Dewa", "Zaki", "Rizky"])
+#data = BatchData("Batch 1 ", [1,2,3,4,5])
+#data2 = BatchData("Periode 1 ", ["Dewa", "Zaki", "Rizky"])
+#data3 = BatchData("Kelas 1", ["UNDIP", "UIN", "UIN"])
 
-print (data, '\n', data2)
+#print (data, '\n', data2, "\n", data3)
 
-total_data = data + data2
-print (total_data)
+#total_data = data + data2 + data3
+#print (total_data)
+
+import time
+#tanpa dekorator
+#def latih_model(nama_model, jumlah_data):
+#    start = time.time()
+
+#    print ("Waktu mulai: ", nama_model, jumlah_data)
+#    time.sleep(2)
+
+#    end = time.time()
+#    durasi = end - start
+#    print(f"{durasi:.2f}")
+
+#hasil = latih_model("Random Forest", jumlah_data=5000)
+
+#Fungsi dekoratif
+def hitung_durasi(fungsi_asli):
+    def pembungkus(*args, **kwargs):
+        start = time.time()
+
+        #print ("Waktu mulai: ", nama_model, jumlah_data)
+        #time.sleep(2)
+        hasil = fungsi_asli(*args, *kwargs)
+        end = time.time()
+        durasi = end - start
+        print(f"{durasi:.2f}")
+        return hasil
+    return pembungkus
+
+@hitung_durasi
+def latih_model(nama_model, jumlah_data):
+    print (nama_model)
+    print (jumlah_data)
+    time.sleep(2)
+
+if __name__ == "__main__":
+    print ("SIMULASI")
+    hasil_sistem = latih_model("random forest", jumlah_data=5000)
