@@ -1,0 +1,71 @@
+<WindowManager>:
+	Proses:
+	Utama:
+	Aljabar:
+
+
+<Proses>:	
+	name : 'proses'
+	FloatLayout:
+		Label:
+			id : judul
+			text : "Samid Keren"
+			font_size : "40dp"
+			color : (0.686,1,0.478,1)
+			pos_hint : {'center_x': 0.5, 'center_y':0.5}
+		
+		ProgressBar:
+			id : Progress_Bar
+			max : 100
+			value : 0
+			pos_hint : {'center_x':0.5, 'center_y':0.3}
+
+<Utama>:
+	name : 'Utama'
+	FloatLayout:
+		Label:
+			id : judul_utama
+			text : "Konnichiwa Dimas-San"
+			font_size : "40dp"
+			color : (0.407, 0, 0.992,1)
+			pos_hint : {'center_x':0.5, 'center_y':0.7}
+		
+		Button:
+			id : aljabar
+			text : "Aljabar"
+			font_size : "30dp"
+			size_hint : 0.2, 0.2
+			pos_hint : {'center_x':0.5, 'center_y':0.5}
+			on_release : root.ganti_halaman()
+			
+<Aljabar>:
+	name : 'Aljabar'
+	FloatLayout:
+		TextInput:
+			id : persamaan
+			text : "Masukkan Persamaan anda"
+			multiline : True
+			pos_hint : {'center_x':0.5, 'center_y':0.7}
+			size_hint : 0.7, 0.2
+			
+		Label:
+			id : "Hasil"
+			text : ''
+			font_size : '30dp'
+			color : (2,2,2,1)
+			pos_hint : {'center_x':0.5,'':0.5}
+			
+		Button:
+			id : "Kembali"
+			text : 'kembali'
+			size_hint : 0.2 , 0.2
+			pos_hint : {'center_x':0.25,'center_y':0.3}
+			on_release : root.kembali()
+			
+		Button:
+			id : "Hitung"
+			text : 'Hitung'
+			size_hint : 0.2 , 0.2
+			pos_hint : {'center_x':0.75,'center_y':0.3}
+			on_release : root.hitung()
+			
