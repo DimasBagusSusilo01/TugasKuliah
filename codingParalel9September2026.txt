@@ -1,0 +1,18 @@
+task="Tugas yang dikerjakan"
+worker="Penjalan tugas"
+COncurrency="Menangani tugas yang bisa dibilang bersamaan namun aslinya bergantian"
+Paralelism="Banyak program berjalan benar benar bersamaan"
+Thread="Sama saja dengan worker"
+Shared_memory={"1 memori untuk multithread",
+  Kelebihan: "Komunikasi cepat",
+  Kekurangan: "Rentan konflict"}
+Distributed_memory={"Setiap proses punya memori sendiri. Komunikasi antar proses eksplisit",
+  Kelebihan: "Skala ke banyak mesin",
+  Kekurangan: "Komunikasi lambat"}
+Sinkronisasi='''Pencegahan data tidak konsisten dan kerusakan data(race condition) dengan
+  mengkoordinasikan bebeberapa proses untuk pastikan 1 thread akses data penting 1 waktu'''
+deadlock="dua atau lebih thread saling menunggu"
+livelock="Hampir sama seperti deadlock namun ini saling berebut"
+race condition="2 thread saling menulis data sama"
+starvation="1 thread selalu kalah mendapat resource"
+priority_inversion="thread prioritas tinggi menunggu resource yang dipegang thread prioritas rendah"
